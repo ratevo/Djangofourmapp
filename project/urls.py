@@ -20,6 +20,7 @@ from Fourm.views import question_detail , questions_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('questions/' , questions_list)
+    path('questions/' , questions_list),
+    path('questions/<int:id>' , question_detail)
 
 ]

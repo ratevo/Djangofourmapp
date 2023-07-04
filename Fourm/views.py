@@ -13,5 +13,6 @@ def questions_list(request):
 
 
 
-def question_detail(request):
-    pass
+def question_detail(request,id):
+    data = Question.objects.get(id=id)
+    return render(request,'Fourm/detail.html',{'data':data})
