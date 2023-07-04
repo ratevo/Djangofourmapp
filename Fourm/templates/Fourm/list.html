@@ -1,10 +1,10 @@
 <h3> Fourm APP </h3>
-
+<a href="/questions/add"> Add New Question </a>
 
 
 <ul>
     {% for question in steven %}
-    <li> <a href="/questions/{{question.id}}"> {{question}}</a></li>
+    <li> <a href="/questions/{{question.id}}"> {{question.author}} {{question}}</a></li>
     {% endfor %}
 
 </ul>
