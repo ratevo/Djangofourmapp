@@ -62,4 +62,12 @@ def edit_question(request):
 
 
 
+
+def delete_question(request,id):
+    data = Question.objects.get(id=id)
+    data.delete()
+    return redirect('/questions/')
+
+
+
   
