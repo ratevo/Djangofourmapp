@@ -9,8 +9,11 @@ class Question (models.Model):
 
     def __str__(self):
         return self.question
-        
 
+
+        
+class Meta:
+    ordering = ["-id"]
 
 
 class Answer(models.Model):
@@ -23,3 +26,9 @@ class Answer(models.Model):
 
     def __str__(self):
         return self.answer
+    
+
+
+
+class Meta:
+    ordering = ["-id"]     
