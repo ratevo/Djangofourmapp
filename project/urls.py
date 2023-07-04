@@ -24,6 +24,6 @@ urlpatterns = [
     path('questions/add' , add_question),
     path('questions/<int:id>' , question_detail),
     path('questions/<int:id>/edit' , edit_question),
-    path('questions/<int:id>/delete' , delete_question),
+    path('questions/<int:id>/delete' , delete_question)
 
 ]

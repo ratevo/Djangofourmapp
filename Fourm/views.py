@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from .models import Question , Answer
-from .forms import QuestionForm
+from .forms import QuestionForm , AnswerForm 
 # Create your views here.
 
 
@@ -17,7 +17,18 @@ def questions_list(request):
 def question_detail(request,id):
     data = Question.objects.get(id=id)
     answer = Answer.objects.filter(question=data)
-    return render(request,'Fourm/detail.html',{'data':data , 'answers':answer})
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            myform = form.save(commit=False)
+            myform.question = data
+            myform.save()
+        
+
+
+    else:
+        form = AnswerForm()    
+    return render(request,'Fourm/detail.html',{'data':data , 'answers':answer, 'form':form})
 
 
 
@@ -34,6 +45,15 @@ def add_question(request):
     else:
         form = QuestionForm()
     return render(request,'Fourm/add.html',{'form':form})
+
+
+
+
+
+
+
+
+
 
 
 
