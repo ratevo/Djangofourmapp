@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Fourm.views import question_detail , questions_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('questions/' , questions_list)
+
 ]
